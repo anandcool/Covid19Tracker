@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {NativeSelect,FormControl} from '@material-ui/core'
-import Styles from './CountryPicker.module.css'
+import styles from './CountryPicker.module.css'
 import {fetchCountries} from '../../api'
 
 const CountryPicker = ({handleCountryChange}) =>{
@@ -15,9 +15,9 @@ const CountryPicker = ({handleCountryChange}) =>{
     },[setFetchedCountries])
     // console.log(fetchedCountries)
     return (
-        <FormControl >
+        <FormControl className={styles.formControl}>
             <NativeSelect defaultValue="" onChange={e => handleCountryChange(e.target.value)}>
-                <option value="global">Global</option>
+                <option value="">Global</option>
                 {fetchedCountries.map((country,i) =><option key={i} value={country}>{country}</option>)}
             </NativeSelect>
         </FormControl>
